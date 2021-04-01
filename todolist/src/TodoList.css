@@ -1,0 +1,15 @@
+.container {
+  width: 1040px;
+  margin: 16px auto;
+  font-size: 32px;
+  text-align: center;
+}
+
+.container .todoList {
+  width: 100%;
+}
+
+.container .todoList .todoListField {
+  width: 50%;
+  height: 50%;
+}

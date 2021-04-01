@@ -1,4 +1,5 @@
 import React from 'react'
+import './TodoList.css';
 
 const UPDATE = 0
 const DELETE = 1
@@ -19,7 +20,12 @@ class TodoList extends React.Component {
     if (index !== -1) {
       switch (type) {
         case UPDATE:
-          list.value = value;
+          if(value){
+            list.value = value;
+          }
+          else {
+            window.alert('cannot blank list please fill list');
+          }
           break;
         case DELETE:
           this.todoList.splice(index, 1);
@@ -43,13 +49,18 @@ class TodoList extends React.Component {
 
   handleSubmit = (event) => {
     const data = this.state.value
-    const datasets = {
-      value: data,
-      serial: this.getSerial(),
-      checked: false
+    if(data){
+      const datasets = {
+        value: data,
+        serial: this.getSerial(),
+        checked: false
+      }
+      this.todoList.push(datasets);
+      localStorage.setItem('todoList', JSON.stringify(this.todoList));
     }
-    this.todoList.push(datasets);
-    localStorage.setItem('todoList', JSON.stringify(this.todoList));
+    else {
+      window.alert('please fill list')
+    }
   }
 
   getIndexBySerial = (serial) => {
@@ -68,7 +79,7 @@ class TodoList extends React.Component {
     render(){
       const todoLists = this.state.list
         return(
-            <div>
+            <div className="container">
             <h1>
                 TODO LIST 
             </h1>
@@ -80,12 +91,12 @@ class TodoList extends React.Component {
         <input type="submit" value="Add" />
       </form>
       <div>
-          {todoLists.map(list => (
-         <li key={list.serial} >
+          {todoLists.slice(0).reverse().map(list => (
+         <li className="todoList" key={list.serial} >
            <label>
-             <input  type="checkbox" checked={list.checked} onClick={e => this.onControlTodoList(e.target.value,list,CHECK)} />
+             <input  type="checkbox" checked={list.checked} onChange={e => this.onControlTodoList(e.target.value,list,CHECK)} />
            </label>
-           <input type="text" value={list.value} onChange={e => this.onControlTodoList(e.target.value,list,UPDATE)} />
+           <input className = "todoListField" type="text" value={list.value} onChange={e => this.onControlTodoList(e.target.value,list,UPDATE)} />
            <button type="button" onClick={e => this.onControlTodoList(e.target.value,list,DELETE)}>
              Delete
            </button>
