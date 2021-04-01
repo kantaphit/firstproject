@@ -1,7 +1,9 @@
 1) Install npm
 
-2) Copy code 
+2) git clone https://github.com/kantaphit/firstproject.git 
 
-3) cd to my directory
+3) open visual studio code or editor
 
-4) type "npm start"
+4) cd todolist
+
+5) type "npm start"
