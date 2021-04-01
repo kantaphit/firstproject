@@ -1,15 +1,88 @@
 .container {
-  width: 1040px;
-  margin: 16px auto;
+  width: 70%;
+  margin: 1% auto;
   font-size: 32px;
   text-align: center;
+  font-weight: bold;
 }
 
-.container .todoList {
-  width: 100%;
-}
-
-.container .todoList .todoListField {
+.container input[type="text"] {
+  background-color: rgb(255, 255, 255);
   width: 50%;
-  height: 50%;
+  margin-right: 2%;
+  vertical-align: middle;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 24px;
+  border-width: 3px;
+}
+
+.container input[type="submit"] {
+  background-color: rgb(255, 255, 255);
+  vertical-align: middle;
+  width: 10%;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 24px;
+  border-width: 3px;
+}
+
+.container input[type="checkbox"] {
+  background-color: rgb(255, 255, 255);
+  vertical-align: middle;
+  width: 10%;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 24px;
+  border-width: 3px;
+}
+
+.formContainer {
+  margin-bottom: 8%;
+}
+
+.listContainer {
+  margin: 3% 0;
+}
+
+.button {
+  background-color: rgb(255, 255, 255);
+  vertical-align: middle;
+  width: 20%;
+  padding: 1%;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 24px;
+  border-width: 3px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+    margin: 1% auto;
+    font-size: 16px;
+  }
+
+  .container input[type="text"] {
+    font-size: 12px;
+  }
+
+  .container input[type="submit"] {
+    font-size: 12px;
+  }
+
+  .container input[type="checkbox"] {
+    font-size: 12px;
+  }
+
+  .button {
+    font-size: 12px;
+  }
 }
