@@ -68,14 +68,12 @@ class TodoList extends React.Component {
 
   //generate index for each list for indicate update / delete / check list
   getSerial = () => {
-    return (
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15)
-    );
+    return this.state.list[this.state.list.length - 1].serial + 1;
   };
 
   render() {
     const todoLists = this.state.list;
+    console.log(todoLists.length);
     return (
       <div className="container">
         <div className="row">
