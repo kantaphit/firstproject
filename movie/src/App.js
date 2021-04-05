@@ -1,44 +1,43 @@
 import React from "react";
 import "./App.css";
+import Store from "./Store.js";
+import Cart from "./Cart.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class App extends React.Component {
-  state = {
-    data: null,
-  };
-  componentDidMount() {
-    fetch(
-      "https://api.themoviedb.org/3/search/movie?api_key=32995b62260b7c64f6b6f2af3cbbb2f4&query=a"
-    )
-      .then((response) => response.json())
-      .then((movielists) => {
-        this.setState({
-          data: movielists,
-        });
-      });
-  }
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <div className="headContainer">
+          <div className="headItem">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="headItem">
+            <FontAwesomeIcon icon="coffee" />
+            <Link to="/store">Store</Link>
+          </div>
+        </div>
 
-  render() {
-    if (!this.state.data) {
-      return <p>No Data</p>;
-    }
-    const movieLists = this.state.data.results;
-    return (
-      <div className="container">
-        <h1>Movie</h1>
-        {movieLists.map((movie) => {
-          return (
-            <div className="image-card">
-              <img
-                src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-                alt={movie.title}
-              />
-              <p className="title">{movie.title}</p>
-            </div>
-          );
-        })}
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/store">
+            <CartCompoent />
+          </Route>
+          <Route path="/">
+            <HomeComponent />
+          </Route>
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
-export default App;
+function HomeComponent() {
+  return <Store />;
+}
+
+function CartCompoent() {
+  return <Cart />;
+}

@@ -1,0 +1,42 @@
+.container {
+  width: 70%;
+  margin: 16px auto;
+  font-size: 24px;
+  text-align: center;
+}
+
+.image-card {
+  display: inline-block;
+  margin: 8px 8px 8px 8px;
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.image-card img {
+  width: 500px;
+  height: 800px;
+}
+
+.image-card p {
+  margin: 8px;
+}
+
+.image-card .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.image-card .venue {
+  font-size: 20px;
+  color: #777;
+}
+
+.image-card .pricing {
+  color: #999;
+}
+
+.btn-click {
+  padding: 16px;
+  background-color: #494dff;
+  color: #fff;
+}

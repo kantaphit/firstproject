@@ -1,42 +1,20 @@
-.container {
-  width: 70%;
-  margin: 16px auto;
-  font-size: 32px;
-  text-align: center;
+.headContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
 }
 
-.image-card {
-  display: inline-block;
-  margin: 8px 8px 8px 8px;
-  text-align: center;
-  padding-bottom: 32px;
-}
-
-.image-card img {
-  width: 500px;
-  height: 800px;
-}
-
-.image-card p {
-  margin: 8px;
-}
-
-.image-card .title {
+.headItem {
+  margin: 0 2% 0 2%;
   font-size: 24px;
   font-weight: bold;
 }
 
-.image-card .venue {
-  font-size: 20px;
-  color: #777;
+a {
+  color: black;
+  text-decoration: none;
 }
 
-.image-card .pricing {
-  color: #999;
-}
-
-.btn-click {
-  padding: 16px;
-  background-color: #494dff;
-  color: #fff;
+a:hover {
+  text-decoration: underline;
 }
